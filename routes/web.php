@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminController;
 
 /*
 
-| Public Routes
+ Public Routes
 
 */
 
@@ -22,7 +22,7 @@ Route::get('/browse', [HomeController::class, 'browse'])->name('browse');
 
 /*
 
-| Auth Page Routes
+ Auth Page Routes
 
 */
 
@@ -34,7 +34,7 @@ Route::get('/forgot-password', fn() => view('auth.forgot-password'))->name('pass
 
 /*
 
-| Auth Submission Routes (Guest Only)
+ Auth Submission Routes (Guest Only)
 
 */
 
@@ -89,7 +89,7 @@ Route::middleware(['auth', 'role:client'])->group(function () {
 
 /*
 
-| Caterer Routes (Auth + Role: caterer)
+ Caterer Routes (Auth + Role: caterer)
 
 */
 
@@ -115,7 +115,7 @@ Route::middleware('auth')->group(function () {
 
 /*
 
-| Admin Routes (Auth + Role: admin)
+ Admin Routes (Auth + Role: admin)
 
 */
 
