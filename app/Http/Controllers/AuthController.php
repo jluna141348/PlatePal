@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-    // ── Client Auth ──────────────────────────────────────────────────────
+    // Client Auth
 
     public function showLogin()
     {
@@ -28,9 +28,9 @@ class AuthController extends Controller
         // Try to authenticate without role restriction first
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            
+
             $user = Auth::user();
-            
+
             // Redirect based on role
             return match($user->role) {
                 'admin' => redirect()->route('admin.dashboard'),
@@ -70,7 +70,7 @@ class AuthController extends Controller
         return redirect()->route('client.dashboard');
     }
 
-    // ── Caterer Auth ─────────────────────────────────────────────────────
+    // Caterer Auth
 
     public function showCatererLogin()
     {
@@ -134,7 +134,7 @@ class AuthController extends Controller
             ->with('success', 'Account created! Please complete your profile to appear in the marketplace.');
     }
 
-    // ── Logout ────────────────────────────────────────────────────────────
+    //  Logout
 
     public function logout(Request $request)
     {

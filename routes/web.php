@@ -12,9 +12,9 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 
 /*
-|--------------------------------------------------------------------------
+
 | Public Routes
-|--------------------------------------------------------------------------
+
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -33,9 +33,9 @@ Route::get('/caterer/register', [AuthController::class, 'showCatererRegister'])-
 Route::get('/forgot-password', fn() => view('auth.forgot-password'))->name('password.request');
 
 /*
-|--------------------------------------------------------------------------
+
 | Auth Submission Routes (Guest Only)
-|--------------------------------------------------------------------------
+
 */
 
 Route::middleware('guest')->group(function () {
@@ -58,9 +58,9 @@ Route::get('/caterer/{id}/about', [CatererController::class, 'about'])->whereNum
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 /*
-|--------------------------------------------------------------------------
+
 | Client Routes (Auth + Role: client)
-|--------------------------------------------------------------------------
+
 */
 
 Route::middleware(['auth', 'role:client'])->prefix('client')->name('client.')->group(function () {
@@ -88,9 +88,9 @@ Route::middleware(['auth', 'role:client'])->group(function () {
 });
 
 /*
-|--------------------------------------------------------------------------
+
 | Caterer Routes (Auth + Role: caterer)
-|--------------------------------------------------------------------------
+
 */
 
 Route::middleware(['auth', 'role:caterer'])->prefix('dashboard')->name('caterer.')->group(function () {
@@ -114,9 +114,9 @@ Route::middleware('auth')->group(function () {
 });
 
 /*
-|--------------------------------------------------------------------------
+
 | Admin Routes (Auth + Role: admin)
-|--------------------------------------------------------------------------
+
 */
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
